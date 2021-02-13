@@ -1,0 +1,161 @@
+/** Final layout
+CSS layout for form.
+Company name: Coneybeare Cleantech
+@author : JDPR
+Software Development student, Green River College
+ */
+
+hr{
+    border: 1px solid forestgreen;
+}
+.formbody{
+    background-color: white;
+}
+body{
+    background-color: aliceblue!important;
+}
+
+#sub:hover {
+    background-color: lightgreen;
+
+}
+#theform{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.toplogo{
+    display: block;
+    margin-left: 0;
+    margin-right: auto;
+    width: 35%;
+}
+/* Submit Button color */
+
+.btn-primary{
+    background-color: forestgreen !important;
+    border-color: black !important;
+}
+
+/* This makes the input field red if it is missing value before submitting the form */
+input:required:focus {
+    border: 1px solid forestgreen;
+    outline: none;
+    opacity: 1;
+}
+/* Declaration of grid area using class name */
+
+/* Business information fieldset*/
+#binfo{
+    grid-area: businessInfo;
+    /*border: 2px solid forestgreen;*/
+
+}
+/* About Company fieldset */
+#about{
+
+    grid-area: aboutCompany;
+    /*border: 2px solid forestgreen;*/
+
+}
+/* Coneybeare Logo */
+.logo{
+    grid-area: logoImage;
+    padding: 5px;
+    margin-top: 15px;
+
+}
+
+/* form tag setting display as grid */
+
+input#city,input#state, label#state{
+    display: block;
+}
+
+/* Submit button (used id on this) */
+#sub{
+    grid-area: buttn;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20% !important;
+    border: none;
+    /*color: white;*/
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 24px;
+    /*background-color: forestgreen;*/
+}
+label{
+    font-weight: normal!important;
+}
+.disla{
+    font-size: 1.5rem!important;
+}
+
+/*Aligning text in legend in center */
+legend{
+    align-content: center;
+    text-align: center;
+
+}
+footer{
+    margin-top: 3rem!important;
+}
+#personalInfo{
+    grid-area: pinfo;
+}
+
+
+/* Media screen for laptop and desktop screen */
+@media only screen and (min-width: 1025px) {
+
+    /* button setting for laptop and desktop screen */
+    #sub{
+
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1em;
+        width: 25%!important;
+        background-color: cornflowerblue;
+
+
+    }
+    legend{
+        font-size: 3rem;
+    }
+
+    .logo{
+        display: block;
+        margin-left: 2rem;
+        margin-right: -15rem;
+        margin-top: 5rem;
+        width: 80%;
+
+    }
+
+    #aboutOrg{
+        height: 68%;
+    }
+
+
+}
+
+/* Media screen or mobile */
+@media only screen and (max-width: 480px) {
+
+    #sub{
+
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        padding: 5px 2px;
+
+
+    }
+
+}
+
+

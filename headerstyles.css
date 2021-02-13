@@ -1,0 +1,42 @@
+/*
+headerstyles.html
+Team JDPR (Jake Gerard, David Boone, Phillip Ball, Raju Shrestha)
+01/30/2021
+This is for the header for Coneybeare Cleantech
+*/
+
+header{
+    background-color: white;
+}
+
+#coneybeareIcon{
+    width: 90px;
+    height: auto;
+    border: solid forestgreen 1px;
+    border-radius: 25px;
+    margin: 5px;
+}
+
+#tagline{
+    color: forestgreen;
+}
+
+#titleIconAnchor, coneybeareLogo{
+    max-width: max-content!important;
+}
+
+@media (min-width: 992px){
+    #coneybeareLogoBig{
+        display: block!important;
+    }
+}
+
+@media (max-width: 991px){
+    #coneybeareLogo{
+        display: block!important;
+    }
+}
+
+#headerSearchForm, #headerSearchBar{
+    width: 75%;
+}

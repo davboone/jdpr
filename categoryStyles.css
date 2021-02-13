@@ -1,0 +1,36 @@
+body{
+    background-color:aliceblue !important;
+}
+.category{
+    text-transform: uppercase;
+    font-size: 70%;
+    text-align: left;
+    font-weight: bold;
+    display: block;
+}
+.container{
+    border: #5B9F51 solid 2px;
+}
+.container-fluid{
+    margin: 1rem auto;
+}
+#main{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+}
+#title{
+    width: max-content;
+    border-bottom: #5B9F51 solid 3px;
+
+}
+div div .row{
+    border-radius: 5px;
+    border: #5B9F51 solid 2px;
+    margin: 2rem 0;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+.section{
+    border-right: #5B9F51 solid 2px;
+}

@@ -1,0 +1,7 @@
+body{
+    background-color: aliceblue;
+}
+
+#companyInfo, #contactInfo, #approve, #deny{
+    background-color: white;
+}

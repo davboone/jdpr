@@ -1,0 +1,16 @@
+body {
+    background-color: aliceblue;
+}
+
+p {
+    font-size: 2rem;
+}
+
+
+img {
+    display: block !important;
+}
+
+.butt {
+    cursor: pointer;
+}
