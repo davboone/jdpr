@@ -1,11 +1,11 @@
 /**
 CSS footer layout.
-Company name: Coneybeare Cleantech
+Company name: Coneybeare
 @Author: JDPR
 Software Development student
  */
 footer {
-    background: rgba(233,236,239,0.54);
+    background: rgba(255,255,255,0.5);
     bottom: 0;
     width: 100%;
     margin-bottom: 0;
@@ -20,6 +20,10 @@ footer > div#footerContent {
                         "F1 F2 F3 F4 F5"
 }
 
+footer > div > div > a {
+    color: rgba(34,139,34,0.9);
+}
+
 footer > div#team {
     text-align: center;
     margin-top: 10px;
@@ -30,3 +34,6 @@ footer > div#social {
     text-align: center;
 }
 
+a {
+    text-decoration: none;
+}

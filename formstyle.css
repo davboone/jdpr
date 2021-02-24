@@ -10,6 +10,7 @@ hr{
 }
 .formbody{
     background-color: white;
+
 }
 body{
     background-color: aliceblue!important;
@@ -18,9 +19,6 @@ body{
 #sub:hover {
     background-color: lightgreen;
 
-}
-#theform{
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .toplogo{
@@ -76,10 +74,10 @@ input#city,input#state, label#state{
     grid-area: buttn;
     margin-left: auto;
     margin-right: auto;
-    width: 20% !important;
+    width: 15% !important;
     border: none;
     /*color: white;*/
-    padding: 15px 30px;
+    padding: 15px 15px;
     text-align: center;
     text-decoration: none;
     display: block;
@@ -116,9 +114,9 @@ footer{
         display: block;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 1em;
-        width: 25%!important;
+        width: 20%!important;
         background-color: cornflowerblue;
+        margin-bottom: 1rem;
 
 
     }
@@ -143,19 +141,42 @@ footer{
 }
 
 /* Media screen or mobile */
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 700px) {
 
     #sub{
 
         display: block;
         margin-left: auto;
         margin-right: auto;
-        width: 50%;
+        width: 50% !important;
         padding: 5px 2px;
+        background-color: cornflowerblue;
 
 
     }
 
 }
 
+/*to make the body same as other pages for the company */
+.container{
+    max-width: 1110px;
+    border-radius: 5px;
+}
 
+@media (max-width: 1199px){
+    .container{
+        max-width: 930px;
+    }
+}
+
+@media (max-width: 991px){
+    .container{
+        max-width: 690px;
+    }
+}
+
+@media (max-width: 768px){
+    .container{
+        max-width: 510px;
+    }
+}

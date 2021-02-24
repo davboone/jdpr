@@ -148,11 +148,10 @@ function validateForm(event) {
     //for Geo location
     let size=document.getElementById("size");
     let sizeErr=document.getElementById("geoError");
-    if(size.value.length===0){
-        noErrors=false;
-        sizeErr.textContent="Please provide geographical service area. Eg, regional, local, global, state.";
+    if(size.value==="default"){
+        sizeErr.textContent="Please select the geographical service area that you serve.";
         sizeErr.style.color="red";
-
+        noErrors=false;
     }
     else sizeErr.style.display="none";
 
@@ -227,3 +226,9 @@ function contactFormInfo() {
     });
 
 }
+
+//displays image in form
+let loadFile = function(event) {
+    let image = document.getElementById('output');
+    image.src = URL.createObjectURL(event.target.files[0]);
+};

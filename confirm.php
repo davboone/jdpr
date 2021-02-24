@@ -1,16 +1,23 @@
 <?php
-ini_set('display_error', 1);
-ini_set('display_startup_errors', 1);
+
 error_reporting(E_ALL);
 include("includes/head.php");
+
+require ('/home3/jdprgree/connect.php');
+$cnxn = connect();
+
+//check connection
+if($cnxn -> connect_error){
+    die("Connection failed : " .$cnxn->connect_error);
+}
 ?>
 <link rel="stylesheet" href="styles/confirmstyle.css">
 <main class="container-fluid">
 
-    <!--    <div class="text-center thankYou">-->
+
     <div class="jumbotron text-center lead">
         <?php
-        //        var_dump($_POST);
+//        var_dump($_POST);
         $businessName = $_POST["bname"];
         $url = $_POST['url'];
         $email = $_POST["email"];
@@ -22,11 +29,11 @@ include("includes/head.php");
         $geoSize=$_POST['geoSize'];
         $otherCategory = $_POST['Other'];
         $tagline=$_POST['tagline'];
-        $logo=$_POST['logo'];
         $aboutOrg = $_POST['aboutOrg'];
         $fName = $_POST['fname'];
         $lName = $_POST['lname'];
         $pEmail = $_POST['personEmail'];
+        $tagName=$_POST['tagName'];
 
 
         echo "<h1 class='lead display-4'>Thank you " . $fName . "!</h1>";
@@ -53,6 +60,7 @@ include("includes/head.php");
                     echo "<li>State: " . $state . "</li>";
                     echo "<li>Country: " . $country . "</li>";
                     echo "<li>Geographical Service Area: ". $geoSize ."</li>";
+                    echo "<li> Keywords :" .$tagName . "</li>";
                     ?>
                 </ul>
             </div>
@@ -70,7 +78,7 @@ include("includes/head.php");
                         echo "<li>Category : " . $category . "</li>";
                     echo "<li>About: " . $aboutOrg . "</li>";
                     echo "<li> Company Tagline: ". $tagline ."</li>";
-                    echo "<li> Company logo: " . $logo ."</li>";
+
                     ?>
                 </ul>
             </div>

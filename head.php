@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/headerstyles.css">
     <?php
-        echo"<link rel='stylesheet' href='styles/$style.css'>";
+        if(!empty($style)){
+            echo "<link rel='stylesheet' href='styles/$style.css'>";
+        }
     ?>
     <link href="images/coneybeare-icon-only.png" type="image/png" rel="icon">
     <title>ConeyBeare Sustainability Catalog</title>
@@ -62,8 +64,8 @@
                     ?>
                 </div>
             </div>
-            <form class="form-inline mx-auto justify-content-center" id="headerSearchForm">
-                <input class="form-control mr-1 ml-lg-auto" type="search" placeholder="Search" id="headerSearchBar">
+            <form class="form-inline mx-auto justify-content-center" id="headerSearchForm" action="../categories.php" method="post">
+                <input class="form-control mr-1 ml-lg-auto" type="search" placeholder="Search Catalog" id="headerSearchBar" name="headerSearchBar">
                 <button class="btn btn-outline-success my-2 my-sm-0 mx-auto mx-sm-0" type="submit">Search</button>
             </form>
         </nav>
