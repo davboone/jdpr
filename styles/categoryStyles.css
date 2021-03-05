@@ -1,0 +1,130 @@
+body{
+    background-image: url('/images/hangingLightbulbs.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.category{
+    text-transform: uppercase;
+    font-size: 70%;
+    text-align: left;
+    font-weight: bold;
+    display: block;
+}
+.container{
+    border: #5B9F51 solid 2px;
+}
+.container-fluid{
+    margin: 1rem auto;
+}
+#emptyRow{
+    border: none;
+    height: 10px;
+}
+div div .row{
+    border-radius: 5px;
+    border: forestgreen;
+    border: rgba(34,139,71,0.2) solid 2px;
+    margin: 1rem 0;
+}
+
+img{
+    display:block;
+    margin: auto;
+}
+
+#main div h1{
+    border-bottom: 2px forestgreen solid;
+    width: max-content;
+}
+
+#main div{
+    padding-bottom: 1rem;
+}
+
+#main{
+    width: 1110px;
+    background: white;
+    margin: 0 auto 2rem auto;
+    border-radius: 5px;
+}
+
+.section{
+    border-right: forestgreen;
+    border-right: rgba(34,139,71,0.2) solid 2px;
+}
+
+#title{
+    width: max-content;
+    border-bottom: forestgreen;
+    border-bottom: rgba(34,139,71,0.2) solid 3px;
+
+}
+
+/* table styles */
+
+table{
+    width: 100%;
+   
+}
+
+td:nth-child(1){
+    text-align: center; 
+    width: 25%;
+}
+
+td:nth-child(2){
+    width: 50%;
+}
+
+td{
+    border: forestgreen;
+    border: 1px solid rgba(34,139,71,0.2);
+    padding: 0.5rem 1rem;
+}
+
+th{
+    border: forestgreen;
+    border: 1px solid rgba(34,139,71,0.2);
+    text-align: center;
+}
+
+tr{
+    border: forestgreen;
+    border: 1px solid rgba(34,139,71,0.2);
+    background: whitesmoke;
+}
+tbody tr:hover{
+    background:rgba(34,139,71,0.1);
+}
+
+/* media queries */
+@media (max-width: 1199px){
+    .container{
+        max-width: 930px;
+    }
+}
+
+@media (max-width: 991px){
+    .container{
+        max-width: 690px;
+    }
+}
+
+@media (max-width: 768px){
+    .container{
+        max-width: 510px;
+    }
+    #main{
+        width:100%;
+    }
+    /* mobile table styles */
+    td:nth-child(1), td:nth-child(2){
+        width: 50%;
+    }
+    td:nth-child(3), th:nth-child(3){
+        display: none;
+    }
+    
+    
+}

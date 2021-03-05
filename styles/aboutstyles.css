@@ -1,0 +1,41 @@
+/* body styles */
+body{
+    background-image: url('/images/greenDna.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.container{
+    background-color: white;
+    max-width: 1110px;
+    border-radius: 5px;
+    margin-bottom: 32px;
+    /*box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;*/
+    /*
+    no shadow on bottom
+    box-shadow: 0px 9px 9px 0px white, 0px -9px 0px 0px white,
+                12px 0px 15px -4px #6c757d73, -12px 0px 15px -4px #6c757d73
+    */
+}
+
+@media (max-width: 1199px){
+    .container{
+        max-width: 930px;
+    }
+}
+
+@media (max-width: 991px){
+    .container{
+        max-width: 690px;
+    }
+}
+
+@media (max-width: 768px){
+    .container{
+        max-width: 510px;
+    }
+}
+
+#vickyImg{
+    border-radius: 25px;
+}

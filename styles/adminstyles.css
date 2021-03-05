@@ -1,0 +1,37 @@
+body{
+    background-color: aliceblue;
+}
+
+#childJumbo{
+    background-color: #fafafa;
+}
+
+.container{
+    max-width: 1110px;
+}
+
+@media (max-width: 1199px){
+    .container{
+        max-width: 930px;
+    }
+}
+
+@media (max-width: 991px){
+    .container{
+        max-width: 690px;
+    }
+}
+
+@media (max-width: 768px){
+    .container{
+        max-width: 510px;
+    }
+}
+
+.container, #companyInfo, #contactInfo, #approve, #deny{
+    background-color: white;
+}
+
+#deniedPopUp{
+    display: none;
+}

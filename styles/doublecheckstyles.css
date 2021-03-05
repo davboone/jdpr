@@ -1,0 +1,31 @@
+body{
+    background-color: aliceblue;
+}
+
+#confirmBtn, #backBtn{
+    width: 40%;
+}
+
+.container{
+    width: 1110px;
+    background-color: white;
+    border-radius: 5px;
+    padding-bottom: 15px;
+    margin-bottom: 32px;
+}
+
+@media (min-width: 992px){
+    fieldset input{
+        width: 150%!important;
+    }
+}
+
+@media (max-width: 575px){
+    .container{
+        width: auto;
+    }
+
+    #bottomRightInput1, #bottomRightInput2{
+        margin-left: 32px;
+    }
+}

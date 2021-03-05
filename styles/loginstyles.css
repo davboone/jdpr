@@ -1,0 +1,30 @@
+body{
+    background-color: aliceblue;
+}
+
+#childJumbo{
+    background-color: #fafafa;
+}
+
+#parentJumbo{
+    background-color: white;
+    max-width: 1110px;
+}
+
+@media (max-width: 1199px){
+    #parentJumbo{
+        max-width: 930px;
+    }
+}
+
+@media (max-width: 991px){
+    #parentJumbo{
+        max-width: 690px;
+    }
+}
+
+@media (max-width: 768px){
+    #parentJumbo{
+        max-width: 510px;
+    }
+}

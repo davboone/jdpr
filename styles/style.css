@@ -1,0 +1,69 @@
+/**
+CSS page layout.
+Company name: Coneybeare
+@Author: JDPR
+Software Development student
+ */
+body{
+    background-image:url(/images/solarPanels.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+@media only screen and (max-width: 480px){
+    a > div > p {
+        font-size: xx-small;
+    }
+}
+
+@media only screen and (min-width: 481px){
+
+}
+
+@media only screen and (min-width: 1024px) {
+
+}
+.jumbotron#child {
+    background-color: #fafafa;
+    width: 100%;
+}
+
+.jumbotron {
+    background-color: #ffffff;
+}
+
+.jumbotron > h1 {
+    text-align: center;
+}
+
+.jumbotron > p {
+    text-align: center;
+}
+
+/* Signup */
+.btn-primary{
+    background-color: forestgreen !important;
+    border-color: black !important;
+}
+
+#categories {
+    display: grid;
+    text-align: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+                        "E W T A"
+}
+
+a > img {
+    height: 50px;
+    margin: 10px;
+}
+
+a > div > p {
+    color: rgba(34,139,34,0.9);
+}
+
+p {
+    text-align: center;
+}
+

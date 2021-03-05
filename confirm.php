@@ -29,7 +29,6 @@ if($cnxn -> connect_error){
         $geoSize=$_POST['geoSize'];
         $otherCategory = $_POST['Other'];
         $tagline=$_POST['tagline'];
-        $aboutOrg = $_POST['aboutOrg'];
         $fName = $_POST['fname'];
         $lName = $_POST['lname'];
         $pEmail = $_POST['personEmail'];
@@ -76,7 +75,6 @@ if($cnxn -> connect_error){
                         echo "<li> Other Category: ". $otherCategory ."</li>";
                     }else
                         echo "<li>Category : " . $category . "</li>";
-                    echo "<li>About: " . $aboutOrg . "</li>";
                     echo "<li> Company Tagline: ". $tagline ."</li>";
 
                     ?>
@@ -91,10 +89,54 @@ if($cnxn -> connect_error){
                     echo "<li>First name :$fName</li>";
                     echo "<li>Last name :$lName</li>";
                     echo "<li>Email : " . $pEmail . "</li>";
-                    ?>
+             ?>
                 </ul>
             </div>
         </div>
+        <?php
+
+        $to="rshrestha9@mail.greenriver.edu";
+        $subject="Request to be added to Coneybeare Sustainability Catalog";
+
+
+
+
+        $message = "Business Information\r\n
+            -Company Name: $businessName\r\n
+            -Company Website: $url\r\n
+            -Company Email: $email\r\n
+            -Company Number: $phone\r\n
+            -Company City: $location\r\n
+            -Company State: $state\r\n
+            -Company State: $country\r\n
+            -Company Geographical Service Area: $geoSize\r\n
+            -Company keywords: $tagName\r\n";
+
+        $message.="About Organization\r\n
+           -Company Category: $category\r\n
+            -Company Tagline: $tagline\r\n";
+        $message.="Personal Contact\r\n
+            -Contacts First Name: $fName\r\n
+            -Contacts Last Name: $lName\r\n
+            -Contacts Email: $email\r\n \r\n";
+
+        $message.="Login to approve or reject the company at: https://jdpr.greenriverdev.com/login.php";
+
+
+        
+        
+        $success=mail($to, $subject, $message);
+        if($success){
+            echo "<h3> An email has been sent to Coneybeare for review.</h3>";
+
+        }
+        else{
+            echo"Something went wrong sending an email. Please try again.";
+        }
+        ?>
+
+    
+
         <hr class="my-4">
         <h1 class=" lead">OUR NEWSLETTER</h1>
         <p class="lead">Subscribe to our popular newsletter and get the latest news directly

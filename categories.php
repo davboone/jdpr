@@ -16,13 +16,13 @@ $cnxn = connect();
             <option value="Housing">Housing</option>
             <option value="Clothing">Clothing</option>
             <option value="Energy">Energy</option>
-            <option value="ConsumerGoods">Consumer Goods</option>
+            <option value="Consumer Goods">Consumer Goods</option>
             <option value="Manufacturing">Manufacturing</option>
             <option value="Wastewater">Wastewater</option>
             <option value="Transportation">Transportation</option>
             <option value="Lighting">Lighting</option>
             <option value="Agriculture">Agriculture</option>
-            <option value="CircularEconomy">Circular Economy</option>
+            <option value="Circular Economy">Circular Economy</option>
             <option value="Education">Education</option>
             <option value="Water">Water</option>
             <option value="Ecology">Ecology</option>
@@ -165,7 +165,7 @@ $cnxn = connect();
                 else
                 {
                     // define the query
-                    $sql = "SELECT name, about, city, state, country FROM company
+                    $sql = "SELECT url, name, about, city, state, country FROM company
                         WHERE category LIKE '%$searchFor%'
                         OR name LIKE '%$searchFor%'
                         OR about LIKE '%$searchFor%'

@@ -7,29 +7,31 @@ This is the login page for admins at Coneybeare Cleantech
 
     <?php
         $style = ("loginstyles");
-        include("includes/head.php")
+        include("includes/head.php");
     ?>
 
     <!-- Login Input and Button -->
-    <div class="container jumbotron text-center">
+    <div class="container jumbotron text-center" id="parentJumbo">
         <h2>Welcome back Admin!</h2>
         <h6>Please enter the required information below to review newly applied forms.</h6>
         <hr class="my-3">
-        <form class="d-flex row justify-content-center" action="admin.php" method="get">
-            <label class="col-7 text-left">Username
-                <input type="text" class="form-control" placeholder="Username">
-            </label>
-            <label class="col-7 text-left">Password
-                <input type="password" class="form-control" placeholder="Password">
-            </label>
-            <div class="col-6 row align-items-center my-3">
-                <button type="submit" class="btn btn-outline-success col-8">Login</button>
-                <label class="col-4">Remember me?
-                    <input type="checkbox">
+        <div class="jumbotron" id="childJumbo">
+            <form class="d-flex row justify-content-center" action="admin.php" method="get">
+                <label class="col-7 text-left">Username
+                    <input type="text" class="form-control" placeholder="Username">
                 </label>
-            </div>
-            <p class="col-12"><a href="#">Forgot Password?</a></p>
-        </form>
+                <label class="col-7 text-left">Password
+                    <input type="password" class="form-control" placeholder="Password">
+                </label>
+                <div class="col-6 row align-items-center my-3">
+                    <button type="submit" class="btn btn-outline-success col-8">Login</button>
+                    <label class="col-4">Remember me?
+                        <input type="checkbox">
+                    </label>
+                </div>
+                <p class="col-12"><a href="#">Forgot Password?</a></p>
+            </form>
+        </div>
     </div>
 
     <!-- The Footer -->
