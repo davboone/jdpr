@@ -14,9 +14,9 @@ $cnxn = connect();
     // grab information sent from the form
 
     // Business info
-    $businessName = $_POST["bname"];
+    $businessName = htmlentities($_POST["bname"], ENT_QUOTES);
     $url = $_POST['url'];
-    $tagline = $_POST['tagline'];
+    $tagline = htmlentities($_POST['tagline'], ENT_QUOTES);
     $category = $_POST['category'];
     $otherCategory = "";
     if(!empty($_POST['Other'])) {
@@ -30,16 +30,16 @@ $cnxn = connect();
     // Business contact info
     $email = $_POST["email"];
     $phone = $_POST['phone'];
-    $city = $_POST['location'];
-    $state = $_POST['state'];
-    $country = $_POST['country'];
-    $address = $_POST['addOne'];
+    $city = htmlentities($_POST['location'], ENT_QUOTES);
+    $state = htmlentities($_POST['state'], ENT_QUOTES);
+    $country = htmlentities($_POST['country'], ENT_QUOTES);
+    $address = htmlentities($_POST['addOne'], ENT_QUOTES);
     $zipcode = $_POST['zip'];
     $geoSize = $_POST['geoSize'];
 
     // Private contact info
-    $fName = $_POST['fname'];
-    $lName = $_POST['lname'];
+    $fName = htmlentities($_POST['fname'], ENT_QUOTES);
+    $lName = htmlentities($_POST['lname'], ENT_QUOTES);
     $pPhone = $_POST['personPhone'];
     $pEmail = $_POST['personEmail'];
 ?>
@@ -90,7 +90,7 @@ $cnxn = connect();
                 }
 
                 // Check file size
-                if ($_FILES["image"]["size"] > 500000) {
+                if ($_FILES["image"]["size"] > 1000000) {
 //                    echo "Sorry, your file is too large.";
                     $uploadOk = 0;
                 }
@@ -111,8 +111,7 @@ $cnxn = connect();
 
                         //conect to DB
                         $sql = "INSERT INTO uploads (image_name) VALUES ('$target_file')";
-                        $sucess = mysqli_query($cnxn, $sql);
-
+                        mysqli_query($cnxn, $sql);
                     }
                 }
 

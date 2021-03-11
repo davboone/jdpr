@@ -5,7 +5,8 @@
 //error_reporting(E_ALL);
 
 // print out all results similar to the search
-function printSearchData($categoryTitle, $result){
+function printSearchData($categoryTitle, $result, $cnxn){
+    
     // sets up the top of the list of companies
     if(!empty($categoryTitle)){
         echo "<h1>$categoryTitle</h1>";
@@ -25,14 +26,35 @@ function printSearchData($categoryTitle, $result){
 
         // assigns the company's icon image to a variable if it has one
         // placeholder image for now
-        $companyImage = "<img src='images/coneybeare-icon-only.png' alt='PLACEHOLDER IMAGE'>";
+        // $sql = "SELECT image_name 
+        //         FROM company
+        //         INNER JOIN uploads
+        //         ON company.image_name = uploads.image_name";
+        $companyImage = "";
+        if(!empty($row['image_name'])){
+            //this runs through the uploads table
+            $sql = "SELECT image_name FROM uploads";
+            $results = mysqli_query($cnxn, $sql);
+            
+            //this returns the image names from the uploads table
+            foreach($results as $images){
+                //if an image name from the uploads table matches an image name
+                //from company, it will be set as the src for the company logo
+                if($images['image_name'] == $row['image_name']){
+                    $companyImage = $row['image_name'];;
+                }
+            }
+        }
+        else{
+        $companyImage = "images/coneybeare-icon-only.png";
+        }
 
         // assigns the company's name to a variable
         $companyName = $row['name'];
 
         // assigns the company's about section (or tagline) to a variable if it has one
-        if(!empty($row['about'])){
-            $companyTagline = $row['about'];
+        if(!empty($row['tagline'])){
+            $companyTagline = $row['tagline'];
         }
 
         // assigns the company's location to variables based on what's supplied
@@ -53,10 +75,12 @@ function printSearchData($categoryTitle, $result){
         elseif(!empty($row['country'])){
             $companyLocation .= ", " . $row['country'];
         }
-
+        //assign public email and public phone
+        $publicEmail = $row['Public_email'];
+        $publicPhone = $row['Public_phone'];
         // print out the company info
-        echo "<tr><td><a $companyUrl>$companyImage $companyName</a></td><td>$companyTagline</td><td>$companyLocation</td></tr>
-            <tr><td colspan='3'>company email | company phone</td></tr>
+        echo "<tr><td><a $companyUrl><img src='$companyImage' alt='PLACEHOLDER IMAGE'> $companyName</a></td><td>$companyTagline</td><td>$companyLocation</td></tr>
+            <tr><td class='contact'>Contact at:</td><td class='contact'>$publicEmail</td><td class='contact'>$publicPhone</td></tr>
             <tr id='emptyRow'></tr>";
     }
     echo "</table>";
@@ -65,12 +89,12 @@ function printSearchData($categoryTitle, $result){
 // print out all companies within the selected category
 function printCategoryData($category, $cnxn){
     // define the query
-    $sql = "SELECT url, name, about, city, state, country FROM company 
+    $sql = "SELECT url, name, tagline, city, state, country, Public_email, Public_phone, image_name FROM company 
                     WHERE category LIKE '$category%'";
 
     // send query to database and store the result into a variable
     $result = mysqli_query($cnxn, $sql);
 
     // calls another function to print the desired results
-    printSearchData($category, $result);
+    printSearchData($category, $result, $cnxn);
 }

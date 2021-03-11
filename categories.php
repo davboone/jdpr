@@ -151,24 +151,24 @@ $cnxn = connect();
                             array_push($chosenExamples, $randomCompany);
 
                             // define the query
-                            $sql = "SELECT name, about, city, state, country FROM company
+                            $sql = "SELECT name, tagline, city, state, country FROM company
                                 WHERE id = '$randomCompany'";
 
                             // send query to database and store the result into a variable
                             $result = mysqli_query($cnxn, $sql);
 
                             // calls a function to print the desired results
-                            printSearchData(null, $result);
+                            printSearchData(null, $result, $cnxn);
                         }
                     }
                 }
                 else
                 {
                     // define the query
-                    $sql = "SELECT url, name, about, city, state, country FROM company
+                    $sql = "SELECT url, name, tagline, city, state, country, keywords, Public_email, Public_phone, image_name FROM company
                         WHERE category LIKE '%$searchFor%'
                         OR name LIKE '%$searchFor%'
-                        OR about LIKE '%$searchFor%'
+                        OR tagline LIKE '%$searchFor%'
                         OR keywords LIKE '%$searchFor%'
                         ORDER BY category";
 
@@ -176,7 +176,7 @@ $cnxn = connect();
                     $result = mysqli_query($cnxn, $sql);
 
                     // calls a function to print the desired results
-                    printSearchData("Here are your search results for $searchFor", $result);
+                    printSearchData("Here are your search results for $searchFor", $result, $cnxn);
                 }
             }
             else

@@ -11,6 +11,12 @@ body{
     font-weight: bold;
     display: block;
 }
+.contact{
+    border:none;
+}
+.contact:nth-child(1){
+    font-weight:bold;
+}
 .container{
     border: #5B9F51 solid 2px;
 }
@@ -27,7 +33,12 @@ div div .row{
     border: rgba(34,139,71,0.2) solid 2px;
     margin: 1rem 0;
 }
-
+#main form{
+    border-bottom: 2px solid gray;
+    border-right: 2px solid gray;
+    border-left: 2px solid gray;
+    padding: 0 1rem 1rem 1rem;
+}
 img{
     display:block;
     margin: auto;
@@ -46,14 +57,12 @@ img{
     width: 1110px;
     background: white;
     margin: 0 auto 2rem auto;
-    border-radius: 5px;
 }
 
 .section{
     border-right: forestgreen;
     border-right: rgba(34,139,71,0.2) solid 2px;
 }
-
 #title{
     width: max-content;
     border-bottom: forestgreen;
@@ -81,6 +90,10 @@ td{
     border: forestgreen;
     border: 1px solid rgba(34,139,71,0.2);
     padding: 0.5rem 1rem;
+}
+td img{
+    height: 200px;
+    width: 200px;
 }
 
 th{
@@ -125,6 +138,5 @@ tbody tr:hover{
     td:nth-child(3), th:nth-child(3){
         display: none;
     }
-    
     
 }

@@ -21,9 +21,9 @@ if($cnxn -> connect_error){
         // grab information sent from the form
 
         // Business info
-        $businessName = $_POST["bname"];
+        $businessName = htmlentities($_POST["bname"], ENT_QUOTES);
         $url = $_POST['url'];
-        $tagline = $_POST['tagline'];
+        $tagline = htmlentities($_POST['tagline'], ENT_QUOTES);
         $category = $_POST['category'];
         if(!empty($_POST['Other'])) {
             $category = $_POST['Other'];
@@ -37,16 +37,16 @@ if($cnxn -> connect_error){
         // Business contact info
         $email = $_POST["email"];
         $phone = $_POST['phone'];
-        $city = $_POST['location'];
-        $state = $_POST['state'];
-        $country = $_POST['country'];
-        $address = $_POST['addOne'];
+        $city = htmlentities($_POST['location'], ENT_QUOTES);
+        $state = htmlentities($_POST['state'], ENT_QUOTES);
+        $country = htmlentities($_POST['country'], ENT_QUOTES);
+        $address = htmlentities($_POST['addOne'], ENT_QUOTES);
         $zipcode = $_POST['zip'];
         $geoSize = $_POST['geoSize'];
 
         // Private contact info
-        $fName = $_POST['fname'];
-        $lName = $_POST['lname'];
+        $fName = htmlentities($_POST['fname'], ENT_QUOTES);
+        $lName = htmlentities($_POST['lname'], ENT_QUOTES);
         $pPhone = $_POST['personPhone'];
         $pEmail = $_POST['personEmail'];
 
@@ -73,7 +73,7 @@ if($cnxn -> connect_error){
                     echo "<li>State: " . $state . "</li>";
                     echo "<li>Country: " . $country . "</li>";
                     echo "<li>Geographical Service Area: " . $geoSize ."</li>";
-                    echo "<li> Keywords: " . $keyWords . "</li>";
+                    echo "<li>Keywords: " . $keyWords . "</li>";
                     ?>
                 </ul>
             </div>
@@ -169,19 +169,9 @@ if($cnxn -> connect_error){
 
         $message.="Login to approve or reject the company at: https://jdpr.greenriverdev.com/login.php";
 
-
-        $sql = "INSERT INTO company (name, category, tagline, url, city, state, country, Geo_Service_Area, Public_email, Public_phone, PointOfContact_Name, keywords, PointOfContact_Email, PointOfContact_PhoneNum) VALUES ('$businessName', '$category', '$tagline', '$url', '$city', '$state', '$country', '$geoSize', '$email', '$phone', '$fName $lName', '$keyWords', '$pEmail', '$pPhone')";
-        echo $sql;
+        //grabs the final confirmation and inserts into the db to be displayed
+        $sql = "INSERT INTO company (name, category, tagline, url, city, state, country, Geo_Service_Area, Public_email, Public_phone, PointOfContact_Name, keywords, PointOfContact_Email, PointOfContact_PhoneNum, image_name) VALUES ('$businessName', '$category', '$tagline', '$url', '$city', '$state', '$country', '$geoSize', '$email', '$phone', '$fName $lName', '$keyWords', '$pEmail', '$pPhone', '$target_file')";
         $dbc = mysqli_query($cnxn, $sql);
-
-        if(empty($dbc))
-        {
-            echo "the insert is empty";
-        }
-        if($dbc)
-        {
-            echo "the query was sent";
-        }
 
         $success=mail($to, $subject, $message);
         if($success){

@@ -14,3 +14,7 @@ img {
 .butt {
     cursor: pointer;
 }
+
+.col-4{
+    border: forestgreen solid 1px;
+}

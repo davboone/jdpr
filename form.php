@@ -23,9 +23,9 @@ if($cnxn -> connect_error){
 // otherwise just make the form blank
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     // Business info
-    $businessName = "value='" . $_POST['bname'] . "'";
+    $businessName = "value='" . htmlentities($_POST["bname"], ENT_QUOTES) . "'";
     $url = "value='" . $_POST['url'] . "'";
-    $tagline = "value='" . $_POST['tagline'] . "'";
+    $tagline = "value='" . htmlentities($_POST['tagline'], ENT_QUOTES) . "'";
     $category = $_POST['category'];
     if(!empty($_POST['Other'])) {
         $otherCategory = "value='" . $_POST['Other'] . "'";
@@ -39,16 +39,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     // Business contact info
     $email = "value='" . $_POST["email"] . "'";
     $phone = "value='" . $_POST['phone'] . "'";
-    $city = "value='" . $_POST['location'] . "'";
-    $state = "value='" . $_POST['state'] . "'";
-    $country = "value='" . $_POST['country'] . "'";
-    $address = "value='" . $_POST['addOne'] . "'";
+    $city = "value='" . htmlentities($_POST['location'], ENT_QUOTES) . "'";
+    $state = "value='" . htmlentities($_POST['state'], ENT_QUOTES) . "'";
+    $country = "value='" . htmlentities($_POST['country'], ENT_QUOTES) . "'";
+    $address = "value='" . htmlentities($_POST['addOne'], ENT_QUOTES) . "'";
     $zipcode = "value='" . $_POST['zip'] . "'";
     $geoSize = $_POST['geoSize'];
 
     // Private contact info
-    $fName = "value='" . $_POST['fname'] . "'";
-    $lName = "value='" . $_POST['lname'] . "'";
+    $fName = "value='" . htmlentities($_POST['fname'], ENT_QUOTES) . "'";
+    $lName = "value='" . htmlentities($_POST['lname'], ENT_QUOTES) . "'";
     $pPhone = "value='" . $_POST['personPhone'] . "'";
     $pEmail = "value='" . $_POST['personEmail'] . "'";
 }
