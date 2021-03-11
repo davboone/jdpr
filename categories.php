@@ -169,6 +169,7 @@ $cnxn = connect();
                         WHERE category LIKE '%$searchFor%'
                         OR name LIKE '%$searchFor%'
                         OR about LIKE '%$searchFor%'
+                        OR keywords LIKE '%$searchFor%'
                         ORDER BY category";
 
                     // send query to database and store the result into a variable

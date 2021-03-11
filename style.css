@@ -5,7 +5,9 @@ Company name: Coneybeare
 Software Development student
  */
 body{
-    background-color: aliceblue;
+    background-image:url(/images/solarPanels.jpg);
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 @media only screen and (max-width: 480px){
@@ -28,6 +30,7 @@ body{
 
 .jumbotron {
     background-color: #ffffff;
+    padding-top: 1rem;
 }
 
 .jumbotron > h1 {
@@ -37,19 +40,41 @@ body{
 .jumbotron > p {
     text-align: center;
 }
-
+.jumbotron h3{
+    background-image: url('/images/niceHills.jpg');
+    background-position: center;
+    color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 2rem;
+}
 /* Signup */
 .btn-primary{
     background-color: forestgreen !important;
     border-color: black !important;
 }
 
-div#categories {
+#categories {
     display: grid;
     text-align: center;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas:
                         "E W T A"
+}
+
+#categories > div:hover {
+    background-color: forestgreen;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+#categories > div:hover p{
+    color: white;
+}
+
+
+a:hover {
+    text-decoration: none;
 }
 
 a > img {

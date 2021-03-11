@@ -18,15 +18,16 @@ $cnxn = connect();
     $url = $_POST['url'];
     $tagline = $_POST['tagline'];
     $category = $_POST['category'];
-    $otherCategory = $_POST['Other'];
+    $otherCategory = "";
+    if(!empty($_POST['Other'])) {
+        $otherCategory = $_POST['Other'];
+    }
     $keyWords = $_POST['keyWord'];
     if(!empty($_FILES['image'])) {
-    $image = $_FILES['image'];
+        $image = $_FILES['image'];
     }
 
-
-
-// Business contact info
+    // Business contact info
     $email = $_POST["email"];
     $phone = $_POST['phone'];
     $city = $_POST['location'];
@@ -120,9 +121,9 @@ $cnxn = connect();
                     <label>Name: <input type='text' class='form-control' name='bname' value='$businessName' readonly></label>
                     <label>URL: <input type='text' class='form-control' name='url' value='$url' readonly></label>
                     <label>Tagline: <input type='text' class='form-control' name='tagline' value='$tagline' readonly></label>
-                    <label>Key Search Terms: <input type='text' class='form-control' name='tagName' value='$keyWords' readonly></label>";
+                    <label>Key Search Terms: <input type='text' class='form-control' name='keyWord' value='$keyWords' readonly></label>";
                     if($category == "Other"){
-                        echo "<label>Category: <input type='text' class='form-control' name='category' value='$otherCategory' readonly></label>";
+                        echo "<label>Category: <input type='text' class='form-control' name='Other' value='$otherCategory' readonly></label>";
                     }
                     else{
                         echo "<label>Category: <input type='text' class='form-control' name='category' value='$category' readonly></label>";
@@ -132,7 +133,8 @@ $cnxn = connect();
                     //<label>Company Logo: <input type='text' class='form-control' name='image' value='' readonly></label>
 
                      echo "<br><label > Company Logo: <br><img src='$target_file' alt='company_logo'  height='200' width='200'/></label>";
-
+                     // used for post
+                     echo "<label class='d-none'>Hidden POST<input type='text' name='target_file' value='$target_file' readonly></label>";
 
                 }
                 else{
@@ -152,8 +154,8 @@ $cnxn = connect();
                     <label>City: <input type='text' class='form-control' name='location' value='$city' readonly></label>
                     <label>State: <input type='text' class='form-control' name='state' value='$state' readonly></label>
                     <label>Country: <input type='text' class='form-control' name='country' value='$country' readonly></label>
-                    <label>Address: <input type='text' class='form-control' name='address' value='$address' readonly></label>
-                    <label>Zipcode: <input type='text' class='form-control' name='zipcode' value='$zipcode' readonly></label>
+                    <label>Address: <input type='text' class='form-control' name='addOne' value='$address' readonly></label>
+                    <label>Zipcode: <input type='text' class='form-control' name='zip' value='$zipcode' readonly></label>
                     <label>Serviceable Range: <input type='text' class='form-control' name='geoSize' value='$geoSize' readonly></label>";
                 ?>
             </fieldset> <!-- Company Contact Info End -->
@@ -192,21 +194,22 @@ $cnxn = connect();
                     <input type='text' class='form-control' name='location' value='$city' readonly>
                     <input type='text' class='form-control' name='state' value='$state' readonly>
                     <input type='text' class='form-control' name='country' value='$country' readonly>
-                    <input type='text' class='form-control' name='address' value='$address' readonly>
-                    <input type='text' class='form-control' name='zipcode' value='$zipcode' readonly>
+                    <input type='text' class='form-control' name='addOne' value='$address' readonly>
+                    <input type='text' class='form-control' name='zip' value='$zipcode' readonly>
                     <input type='text' class='form-control' name='geoSize' value='$geoSize' readonly>
                     <input type='text' class='form-control' name='bname' value='$businessName' readonly>
                     <input type='text' class='form-control' name='url' value='$url' readonly>
                     <input type='text' class='form-control' name='tagline' value='$tagline' readonly>
-                    <input type='text' class='form-control' name='tagName' value='$keyWords' readonly>";
-            if($category == "Other"){
-                echo "<input type='text' class='form-control' name='category' value='$otherCategory' readonly>";
-            }
-            else{
-                echo "<input type='text' class='form-control' name='category' value='$category' readonly>";
-            }
-            echo "<input type='text' class='form-control' name='image' readonly>$image</input>
-                </div>";
+                    <input type='text' class='form-control' name='keyWord' value='$keyWords' readonly>
+                    if(!empty($otherCategory)){
+                    <input type='text' class='form-control' name='Other' value='$otherCategory' readonly>
+                    }
+                    else{
+                    <input type='text' class='form-control' name='category' value='$category' readonly>
+                        
+                    }";
+                    //<input type='text' class='form-control' name='image' readonly>$image</input>
+                echo "</div>";
 
 
         ?>

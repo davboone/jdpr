@@ -12,7 +12,7 @@ function printSearchData($categoryTitle, $result){
     }
     //echo "<h1>$categoryTitle</h1>";
     echo "<table>";
-    echo "<thead><tr><th>Company Name</th><th>Company Tagline</th><th>Company Location</th></tr></thead>";
+    echo "<thead><tr><th>Company Name</th><th>Company Tagline</th><th>Company Location</th></tr><tr id='emptyRow'></tr></thead>";
 
     // loop through the database using the given info stored in $result
     // and store only the wanted info into variables
@@ -20,7 +20,7 @@ function printSearchData($categoryTitle, $result){
         // assigns the company's url to a variable if it has one
         $companyUrl = "";
         if(!empty($row['url'])){
-            $companyUrl = $row['url'];
+            $companyUrl = " href='".$row['url']."'";
         }
 
         // assigns the company's icon image to a variable if it has one
@@ -55,7 +55,9 @@ function printSearchData($categoryTitle, $result){
         }
 
         // print out the company info
-        echo "<tr><td><a href='$companyUrl'>$companyImage $companyName</a></td><td>$companyTagline</td><td>$companyLocation</td></tr>";
+        echo "<tr><td><a $companyUrl>$companyImage $companyName</a></td><td>$companyTagline</td><td>$companyLocation</td></tr>
+            <tr><td class='contact'>Contact at:</td><td class='contact'>emailExample@yahoo.com</td><td class='contact'>888-545-2021</td></tr>
+            <tr id='emptyRow'></tr>";
     }
     echo "</table>";
 }
