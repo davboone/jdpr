@@ -8,8 +8,7 @@ body{
 .container{
     background-color: white;
     max-width: 1110px;
-    border-radius: 5px;
-    margin-bottom: 32px;
+    border-radius: 0;
     /*box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;*/
     /*
     no shadow on bottom
@@ -17,7 +16,9 @@ body{
                 12px 0px 15px -4px #6c757d73, -12px 0px 15px -4px #6c757d73
     */
 }
-
+.jumbotron{
+    border-radius: 0;
+}
 @media (max-width: 1199px){
     .container{
         max-width: 930px;

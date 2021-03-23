@@ -12,6 +12,9 @@
         if(!empty($style)){
             echo "<link rel='stylesheet' href='styles/$style.css'>";
         }
+        else{
+            $style = "";
+        }
     ?>
     <link href="images/coneybeare-icon-only.png" type="image/png" rel="icon">
     <title>ConeyBeare Sustainability Catalog</title>
@@ -33,7 +36,7 @@
         </div>
 
         <!-- Nav bar -->
-        <nav class="navbar navbar-expand-md navbar-light bg-light w-75 mx-auto text-nowrap">
+        <nav class="navbar navbar-expand-md navbar-light bg-light w-100 mx-auto text-nowrap">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -73,6 +76,11 @@
             <form class="form-inline justify-content-end flex-nowrap" id="headerSearchForm" action="../categories.php" method="post">
                 <input class="form-control mr-1" type="search" placeholder="Search Catalog" id="headerSearchBar" name="headerSearchBar">
                 <button class="btn btn-outline-success" type="submit">Search</button>
+                <?php
+                if($style=='adminstyles'){
+                    echo "<a class='nav-link ml-3 ml-md-0' href='/logout.php'>Log Out</a>";
+                }
+                ?>
             </form>
         </nav>
     </header>

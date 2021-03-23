@@ -36,3 +36,9 @@ footer > div#social {
 a {
     text-decoration: none;
 }
+
+@media only screen and (max-width: 480px){
+    footer > div > div {
+        font-size: xx-small;
+    }
+}

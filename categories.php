@@ -11,28 +11,28 @@ $cnxn = connect();
     <div id="main" class="container-fluid">
         <form id="categorySelect" method="post">
         <label for="category">Category</label>
-        <select onchange="submitForm()" class="form-control" name="category" id="category">
-            <option value="">Select a category</option>
-            <option value="Housing">Housing</option>
-            <option value="Clothing">Clothing</option>
-            <option value="Energy">Energy</option>
-            <option value="Consumer Goods">Consumer Goods</option>
-            <option value="Manufacturing">Manufacturing</option>
-            <option value="Wastewater">Wastewater</option>
-            <option value="Transportation">Transportation</option>
-            <option value="Lighting">Lighting</option>
+        <select onchange="submitForm()" class="form-control custom-select" name="category" id="category">
+            <option selected disabled value="">Select a category</option>
+            <option value="Activism">Activism</option>
             <option value="Agriculture">Agriculture</option>
             <option value="Circular Economy">Circular Economy</option>
-            <option value="Education">Education</option>
-            <option value="Water">Water</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Consumer Goods">Consumer Goods</option>
             <option value="Ecology">Ecology</option>
-            <option value="Activism">Activism</option>
+            <option value="Education">Education</option>
+            <option value="Energy">Energy</option>
             <option value="Healthcare">Healthcare</option>
+            <option value="Housing">Housing</option>
+            <option value="Lighting">Lighting</option>
+            <option value="Manufacturing">Manufacturing</option>
+            <option value="Transportation">Transportation</option>
+            <option value="Wastewater">Wastewater</option>
+            <option value="Water">Water</option>
             <option value="Other">Other</option>
         </select>
         </form>
-
-        <div>
+        <hr>
+        <div id="parent">
             <?php
             /*
             $category = $_POST['category'];
@@ -170,7 +170,7 @@ $cnxn = connect();
                         OR name LIKE '%$searchFor%'
                         OR tagline LIKE '%$searchFor%'
                         OR keywords LIKE '%$searchFor%'
-                        ORDER BY category";
+                        ORDER BY name";
 
                     // send query to database and store the result into a variable
                     $result = mysqli_query($cnxn, $sql);
@@ -203,5 +203,6 @@ $cnxn = connect();
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="script/formSubmission.js"></script>
+    <script src="script/categoriesScript.js"></script>
 </body>
 </html>

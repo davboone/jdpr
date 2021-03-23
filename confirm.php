@@ -135,45 +135,45 @@ if($cnxn -> connect_error){
                     echo "<li>Last name: $lName</li>";
                     echo "<li>Email: " . $pEmail . "</li>";
                     echo "<li>Phone: " . $pPhone . "</li>";
-             ?>
+                    ?>
                 </ul>
             </div>
         </div>
         <?php
 
-        $to="rshrestha9@mail.greenriver.edu";
+        $to = $pEmail;
         $subject="Request to be added to Coneybeare Sustainability Catalog";
 
 
 
 
-        $message = "Business Information\r\n
-            -Company Name: $businessName\r\n
-            -Company Website: $url\r\n
-            -Company Email: $email\r\n
-            -Company Number: $phone\r\n
-            -Company City: $city\r\n
-            -Company State: $state\r\n
-            -Company State: $country\r\n
-            -Company Geographical Service Area: $geoSize\r\n
-            -Company keywords: $keyWords\r\n";
+        $message = "Business Information<br>
+            -Company Name: $businessName<br>
+            -Company Website: $url<br>
+            -Company Email: $email<br>
+            -Company Number: $phone<br>
+            -Company City: $city<br>
+            -Company State: $state<br>
+            -Company State: $country<br>
+            -Company Geographical Service Area: $geoSize<br>
+            -Company keywords: $keyWords<br> <br>";
 
-        $message.="About Organization\r\n
-            -Company Category: $category\r\n
-            -Company Tagline: $tagline\r\n";
+        $message.="About Organization<br>
+            -Company Category: $category<br>
+            -Company Tagline: $tagline<br> <br>";
 
-        $message.="Personal Contact\r\n
-            -Contacts First Name: $fName\r\n
-            -Contacts Last Name: $lName\r\n
-            -Contacts Email: $email\r\n \r\n";
-
-        $message.="Login to approve or reject the company at: https://jdpr.greenriverdev.com/login.php";
-
+        $message.="Personal Contact<br>
+            -Contacts First Name: $fName<br>
+            -Contacts Last Name: $lName<br>
+            -Contacts Email: $email<br> <br>";
+            $link = "<a href='https://jdpr.greenriverdev.com/admin.php?name=$businessName'>Click here</a>";
+        $message.= $link." to approve or reject the company.";
+        $headers = "Content-Type: text/html; charset=UTF-8\r\n";
         //grabs the final confirmation and inserts into the db to be displayed
-        $sql = "INSERT INTO company (name, category, tagline, url, city, state, country, Geo_Service_Area, Public_email, Public_phone, PointOfContact_Name, keywords, PointOfContact_Email, PointOfContact_PhoneNum, image_name) VALUES ('$businessName', '$category', '$tagline', '$url', '$city', '$state', '$country', '$geoSize', '$email', '$phone', '$fName $lName', '$keyWords', '$pEmail', '$pPhone', '$target_file')";
+        $sql = "INSERT INTO pending (name, category, tagline, url, city, state, country, Geo_Service_Area, Public_email, Public_phone, PointOfContact_Name, keywords, PointOfContact_Email, PointOfContact_PhoneNum, image_name) VALUES ('$businessName', '$category', '$tagline', '$url', '$city', '$state', '$country', '$geoSize', '$email', '$phone', '$fName $lName', '$keyWords', '$pEmail', '$pPhone', '$target_file')";
         $dbc = mysqli_query($cnxn, $sql);
 
-        $success=mail($to, $subject, $message);
+        $success=mail($to, $subject, $message, $headers);
         if($success){
             echo "<h3> An email has been sent to Coneybeare for review.</h3>";
 

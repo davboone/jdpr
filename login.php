@@ -1,13 +1,42 @@
-<!--
-login.php
-Team JDPR (Jake Gerard, David Boone, Phillip Ball, Raju Shrestha)
-01/30/2021
-This is the login page for admins at Coneybeare Cleantech
--->
+<?php
+//Turn on error reporting
+ini_set('display_errors',1);
+error_reporting(E_ALL);
 
-    <?php
-        $style = ("loginstyles");
-        include("includes/head.php");
+    // Start the session
+    session_start();
+
+    //Initialize variables if form is submitted
+    $validLogin = true;
+    $un = "";
+
+    //storing usernames
+    if (!empty($_POST)) {
+        //Get the form data
+        $un = $_POST['username'];
+        $pw = $_POST['password'];
+        if(!empty($_GET)){
+            $companyName = $_GET['name'];
+            $_SESSION['companyName'] = $companyName;
+        }
+        //If the login is valid
+        require('Login-creds.php');
+        if ($un == $username && $pw == $password) {
+
+            //Record the login in the session array
+            $_SESSION['theUserLogin'] = $un;
+
+            //Go to the home page
+            $page = isset($_SESSION['page']) ? $_SESSION['page'] : "admin.php";
+            header('location: '.$page);
+        }
+        else
+
+        //Invalid login -- set flag variable
+        $validLogin = false;
+    }
+    $style = ("loginstyles");
+    include("includes/head.php");
     ?>
 
     <!-- Login Input and Button -->
@@ -16,13 +45,19 @@ This is the login page for admins at Coneybeare Cleantech
         <h6>Please enter the required information below to review newly applied forms.</h6>
         <hr class="my-3">
         <div class="jumbotron" id="childJumbo">
-            <form class="d-flex row justify-content-center" action="admin.php" method="get">
+            <form class="d-flex row justify-content-center" action="#" method="post">
                 <label class="col-7 text-left">Username
-                    <input type="text" class="form-control" placeholder="Username">
+                    <input type="text" class="form-control" id="username" name="username" value="<?php echo $un; ?>">
                 </label>
                 <label class="col-7 text-left">Password
-                    <input type="password" class="form-control" placeholder="Password">
+                    <input type="password" class="form-control" id="password" name="password" value="">
+                    <?php
+                    if (!$validLogin) {
+                        echo '<br><p class="err">Login is incorrect. Please provide valid login.</p>';
+                    }
+                    ?>
                 </label>
+
                 <div class="col-6 row align-items-center my-3">
                     <button type="submit" class="btn btn-outline-success col-8">Login</button>
                     <label class="col-4">Remember me?

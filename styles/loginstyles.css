@@ -11,6 +11,10 @@ body{
     max-width: 1110px;
 }
 
+.err {
+    color: darkred;
+}
+
 @media (max-width: 1199px){
     #parentJumbo{
         max-width: 930px;

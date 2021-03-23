@@ -17,6 +17,9 @@ body{
     background-size: cover;
     background-attachment: fixed;
 }
+#theform{
+    border-radius: 0;
+}
 
 #sub:hover {
     background-color: lightgreen;
@@ -99,11 +102,9 @@ legend{
     text-align: center;
 
 }
-footer{
-    margin-top: 3rem!important;
-}
 #personalInfo{
     grid-area: pinfo;
+    margin-bottom: 0;
 }
 
 

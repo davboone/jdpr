@@ -24,138 +24,152 @@ This is the landing page for Coneybeare Cleantech
                 <div class="jumbotron" id="child">
                     <div class="justify-content-center" id="content">
                         <div id="categories">
-                            <!--Energy-->
-                            <div id="E">
-                                <a href="categories.php?category=Energy" >
-                                    <img src="images/energy.png" alt="Energy">
-                                    <div class="justify-content-center row">
-                                        <p>Energy</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <!--Water-->
-                            <div id="W">
-                                <a href="categories.php?category=Water">
-                                    <img src="images/water.png" alt="Water">
-                                    <div class="justify-content-center row">
-                                        <p>Water</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <!--Transportation-->
-                            <div id="T">
-                                <a href="categories.php?category=Transportation">
-                                    <img src="images/transportation.png" alt="Transportation">
-                                    <div class="justify-content-center row">
-                                        <p>Transportation</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <!--Agriculture-->
-                            <div id="A">
-                                <a href="categories.php?category=Agriculture">
-                                    <img src="images/agriculture.png" alt="Agriculture">
-                                    <div class="justify-content-center row">
-                                        <p>Agriculture</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div id="H">
-                                <a href="categories.php?category=Housing">
+                            <a href="categories.php?category=Housing">
+                                <div id="H">
                                     <img src="images/housing.png" alt="Housing">
                                     <div class="justify-content-center row">
                                         <p>Housing</p>
                                     </div>
-                                </a>
-                            </div>
-                            <div id="C">
-                                <a href="categories.php?category=Clothing" >
-                                    <img src="images/clothing.png" alt="Clothing">
+                                </div>
+                            </a>
+                            
+                            <!--Water-->
+                            <a href="categories.php?category=Water">
+                                <div id="W">
+                                    <img src="images/water.png" alt="Water">
                                     <div class="justify-content-center row">
-                                        <p>Clothing</p>
+                                        <p>Water</p>
                                     </div>
-                                </a>
-                            </div>
-                            <div id="CG">
-                                <a href="categories.php?category=ConsumerGoods">
-                                    <img src="images/consumergoods.png" alt="Consumer Goods">
+                                </div>
+                            </a>
+                            
+                            <!--Transportation-->
+                            <a href="categories.php?category=Transportation">
+                                <div id="T">
+                                    <img src="images/transportation.png" alt="Transportation">
                                     <div class="justify-content-center row">
-                                        <p>Consumer Goods</p>
+                                        <p>Transportation</p>
                                     </div>
-                                </a>
-                            </div>
-                            <div id="M">
-                                <a href="categories.php?category=Manufacturing">
+                                </div>
+                            </a>
+                            
+                            <!--Agriculture-->
+                            <a href="categories.php?category=Manufacturing">
+                                <div id="M">
                                     <img src="images/manufacturing.png" alt="Manufacturing">
                                     <div class="justify-content-center row">
                                         <p>Manufacturing</p>
                                     </div>
-                                </a>
-                            </div>
-                            <div id="WW">
-                                <a href="categories.php?category=Wastewater">
+                                </div>
+                            </a>
+
+                            <a href="categories.php?category=Energy" >
+                                <div id="E">
+                                    <img src="images/energy.png" alt="Energy">
+                                    <div class="justify-content-center row">
+                                        <p>Energy</p>
+                                    </div>
+                                </div>
+                            </a>
+                           
+                            <a href="categories.php?category=Clothing" >
+                                <div id="C">
+                                    <img src="images/clothing.png" alt="Clothing">
+                                    <div class="justify-content-center row">
+                                        <p>Clothing</p>
+                                    </div>
+                               </div> 
+                            </a>
+                            
+                            <a href="categories.php?category=ConsumerGoods">
+                                <div id="CG">
+                                    <img src="images/consumergoods.png" alt="Consumer Goods">
+                                    <div class="justify-content-center row">
+                                        <p>Consumer Goods</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="categories.php?category=Agriculture">
+                                <div id="A">
+                                    <img src="images/agriculture.png" alt="Agriculture">
+                                    <div class="justify-content-center row">
+                                        <p>Agriculture</p>
+                                    </div>
+                                </div>
+                            </a>
+                            
+                            <a href="categories.php?category=Wastewater">
+                                <div id="WW">
                                     <img src="images/wastewater.png" alt="Wastewater">
                                     <div class="justify-content-center row">
                                         <p>Waste Water</p>
                                     </div>
-                                </a>
-                            </div>
-                            <div id="L">
-                                <a href="categories.php?category=Lighting">
+                                </div>
+                            </a>
+                            
+                            <a href="categories.php?category=Lighting">
+                                <div id="L">
                                     <img src="images/lighting.png" alt="Lighting">
                                     <div class="justify-content-center row">
                                         <p>Lighting</p>
                                     </div>
-                                </a>
-                            </div>
-                            <div id="CE">
-                                <a href="categories.php?category=CircularEconomy">
+                                </div>
+                            </a>
+                            
+                            <a href="categories.php?category=CircularEconomy">
+                                <div id="CE">
                                     <img src="images/circularcycling.png" alt="Circular Economy">
                                     <div class="justify-content-center row">
                                         <p>Circular Cycling</p>
                                     </div>
-                                </a>
-                            </div>
-                            <div id="ED">
-                                <a href="categories.php?category=Education">
+                                </div>
+                            </a>
+                            
+                            <a href="categories.php?category=Education">
+                                <div id="ED">
                                     <img src="images/education.png" alt="Education">
                                     <div class="justify-content-center row">
                                         <p>Education</p>
                                     </div>
-                                </a>
-                            </div>
-                            <div id="EC">
-                                <a href="categories.php?category=Ecology">
+                                </div>
+                            </a>
+                            
+                            <a href="categories.php?category=Ecology">
+                                <div id="EC">
                                     <img src="images/ecology.png" alt="Ecology">
                                     <div class="justify-content-center row">
                                         <p>Ecology</p>
                                     </div>
-                                </a>
-                            </div>
-                            <div id="AC">
-                                <a href="categories.php?category=Activism">
+                                </div>
+                            </a>
+                            
+                            <a href="categories.php?category=Activism">
+                                <div id="AC">
                                     <img src="images/activism.jpg" alt="Activism">
                                     <div class="justify-content-center row">
                                         <p>Activism</p>
                                     </div>
-                                </a>
-                            </div>
-                            <div id="HC">
-                                <a href="categories.php?category=Healthcare">
+                                </div>
+                            </a> 
+                            
+                            <a href="categories.php?category=Healthcare">
+                                <div id="HC">
                                     <img src="images/healthcare.png" alt="Healthcare">
                                     <div class="justify-content-center row">
                                         <p>Healthcare</p>
                                     </div>
-                                </a>
-                            </div>
-                            <div id="O">
-                                <a href="categories.php?category=Other">
+                                </div>
+                            </a>
+                            
+                            <a href="categories.php?category=Other">
+                                <div id="O">
                                     <img src="images/other.jpg" alt="Other">
                                     <div class="justify-content-center row">
                                         <p>Other</p>
                                     </div>
-                                </a>
-                            </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
                     <hr class="my-4">

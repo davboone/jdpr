@@ -1,71 +1,164 @@
-<!--
-admin.php
-Team JDPR (Jake Gerard, David Boone, Phillip Ball, Raju Shrestha)
-01/31/2021
-This is the admin page for admins at Coneybeare Cleantech
--->
+<?php
+//starting session
+session_start();
+//connect to database
+require('/home3/jdprgree/connect.php');
+$cnxn = connect();
 
-    <?php
-        $style = ("adminstyles");
-        include("includes/head.php");
-    ?>
+//check to see if the user is not logged in
+if (empty($_SESSION['theUserLogin'])) {
+//Redirect user to login page
+    if(!empty($_GET)){
+        $companyName = $_GET['name'];
+        $_SESSION['companyName'] = $companyName;
+    }
+    header('location: login.php');
+}
 
-    <!-- Form Data For Approval/Rejection -->
-    <div class="container jumbotron row mx-auto d-flex justify-content-center text-center">
-        <div class="jumbotron" id="childJumbo">
-            <div class="col-12 row border border-success rounded mb-3 ml-0" id="companyInfo">
-                <h3 class="col-12 text-left">Company Info.</h3>
-                <hr class="col-11 my-2">
-                <div class="col-12 col-md-4">
-                    <p>Company name: Placeholder</p>
-                    <p class="text-truncate">Website: <br>https://www.placeholder.placeholder</p>
-                    <p>Location: City, State/Province, Country</p>
-                    <p>Category: Placeholder</p>
-                    <p>Company Serves: Local/Regional, state, national, or global</p>
-                </div>
-                <div class="col-12 col-md-4">
-                    <p>About Company.</p>
-                    <p>Placeholder for about data</p>
-                </div>
-                <div class="col-12 col-md-4">
-                    <img src="images/coneybeare-icon-only.png" alt="PLACEHOLDER COMPANY ICON">
-                    <p>Placeholder for company tagline.</p>
-                </div>
+
+$style = ("adminstyles");
+include("includes/head.php");
+
+?>
+
+<!-- Container -->
+<div class="container jumbotron row mx-auto d-flex justify-content-center text-center">
+
+    <!-- Jumbotron for Style -->
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3 boss row">
+
+        <!-- Company data for Approval/Rejection -->
+        <div class="col-12 col-sm-4 bg-secondary container-fluid mb-2 pt-3 px-3 pt-md-5 px-md-5 text-left text-white overflow-hidden box ">
+                    <?php
+                    if(!empty($_GET)){
+                        $getName = $_GET['name'];
+                    }
+                    else {
+                        $getName = $_SESSION['companyName'];
+                    }
+                    $sql = "SELECT * FROM `pending` WHERE name = '$getName' ORDER BY id DESC";
+                    $row = mysqli_query($cnxn,$sql);
+                    $results = mysqli_fetch_array($row);
+
+                    echo "<h4>Company Info</h4>";
+
+                    ?>
+                <ul>
+                    <?php
+                    $businessName = $results['name'];
+                    $city = $results['city'];
+                    $state = $results['state'];
+                    $country = $results['country'];
+                    $geoSize = $results['Geo_Service_Area'];
+                    $keyWords = $results['keywords'];
+                    echo "<li>Company Name: " . $businessName . "</li>";
+                    echo "<li>City: " . $city . "</li>";
+                    echo "<li>State: " . $state . "</li>";
+                    echo "<li>Country: " . $country . "</li>";
+                    echo "<li>Geographical Service Area: " . $geoSize ."</li>";
+                    echo "<li>Keywords: " . $keyWords . "</li>";
+                    ?>
+                </ul>
             </div>
-            <hr class="my-3">
-            <div class="col-12 border border-success rounded w-75 mx-auto" id="contactInfo">
-                <h3 class="col-12 text-left">Contact Info.</h3>
-                <hr class="col-11 my-2">
-                <p>First Name: Placeholder</p>
-                <p>Last Name: Placeholder</p>
-                <p class="text-truncate">Email: <a href="#" class="flex-wrap">placeholder@placeholder.placeholder</a></p>
+
+            <div id= 'icon' class="col-12 col-sm-3 border-right-0 border-left-0 bg-light container-fluid mx-2 mb-2 pt-3 px-3 pt-md-5 px-md-5 text-center text-black overflow-auto box">
+                <?php
+                    echo "<h4>Company Icon</h4>";
+
+                    $target_file = $results['image_name'];
+                    if(!empty($target_file)){
+                    //phillip's code for image
+                    //<label>Company Logo: <input type='text' class='form-control' name='image' value='' readonly></label>
+
+                        echo "<img class='mx-auto' src='$target_file' alt='company_logo'  height='200' width='200'/></label>";
+                    }
+                    else{
+                        echo "<img class='mx-auto' src='images/coneybeare-icon-only.png' alt='Default Image' >";
+                    }
+                ?>
             </div>
-            <hr class="my-3">
-            <div class="col-12 row align-self-center d-flex justify-content-center w-75 mx-auto">
-                <form class="col-6">
-                    <button type="button" class="btn btn-outline-success col-8 mb-1" id="approve">Approve</button>
-                </form>
-                <form method="post" class="col-6">
-                    <button type="button" class="btn btn-outline-danger col-8 mt-1" id="deny">Reject</button>
-                </form>
-                <div class="mt-3" id="deniedPopUp">
-                    <h4>Please let this company know why they've been rejected.</h4>
-                    <textarea class='form-control' rows='5' placeholder='Reason Why'></textarea>
-                </div>
+
+            <div class="col-12 col-sm-4 bg-secondary container-fluid mb-2 pt-3 px-3 pt-md-5 px-md-5 text-left text-white overflow-auto box">
+
+                <?php
+                echo "<h4>About Organization</h4>";
+                ?>
+                <ul>
+                    <?php
+                    $category = $results['category'];
+                    $tagline = $results['tagline'];
+                    if($category == "Other"){
+                        echo "<li>Other Category: ". $category ."</li>";
+                    }else
+                        echo "<li>Category: " . $category . "</li>";
+                    echo "<li>Company Tagline: " . $tagline . "</li>";
+
+                    ?>
+                </ul>
             </div>
-        </div>
-    </div>
 
-    <!-- The Footer -->
-    <?php
-        include("includes/footer.php");
-    ?>
+            <div class="col-12 col-sm-4 border-top-0 bg-light pt-3 container-fluid px-3 pt-md-5 px-md-5 text-left text-black overflow-hidden box">
+                <?php
+                    echo "<h4>Company Contact</h4>";
+                ?>
+                <ul>
+                    <?php
+                        $email = $results['Public_email'];
+                        $phone = $results['Public_phone'];
+                        echo "<li>Company Email: " . $email . "</li>";
+                        echo "<li>Company Phone: " . $phone . "</li>";
+                    ?>
+                </ul>
+            </div>
 
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            <div class="col-12 col-sm-4 border-top-0 bg-light pt-3 container-fluid px-3 pt-md-5 px-md-5 text-left text-black overflow-hidden box">
+                <?php
+                echo "<h4>Personal Contact</h4>";
+                ?>
+                <ul>
+                    <?php
+                    $contactName = $results['PointOfContact_Name'];
+                    $pEmail = $results['PointOfContact_Email'];
+                    $pPhone = $results['PointOfContact_PhoneNum'];
+                    echo "<li>Contact name: $contactName</li>";
+                    echo "<li>Email: " . $pEmail . "</li>";
+                    echo "<li>Phone: " . $pPhone . "</li>";
+             ?>
+                </ul>
+            </div>
 
-    <script src="script/admin.js"></script>
+        <!-- Buttons and pop-up explanation -->
+        <div class="col-12 row align-self-center d-flex justify-content-center w-75 mx-auto">
+
+            <!-- Approve button -->
+            <form action="adminconfirmation.php" method="post" class="col-6">
+                <input type="text" class="d-none" name="submissionId" value=<?php echo $results['id'] ?>>
+                <button type="submit" class="btn btn-outline-success col-8 mb-1" id="approve" name="approve" value="approve">Approve</button>
+            </form>
+
+            <!-- Deny button -->
+            <form action="adminconfirmation.php" method="post" class="col-6">
+                <input type="text" class="d-none" name="submissionId" value=<?php echo $results['id'] ?>>
+                <button type="submit" class="btn btn-outline-danger col-8" id="deny" name="deny" value="deny">Reject</button>
+            </form>
+        </div> <!-- Buttons and pop-up explanation END -->
+    </div> <!-- Jumbotron for Style END -->
+</div> <!-- Container END -->
+
+<!-- The Footer -->
+<?php
+include("includes/footer.php");
+?>
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 </html>

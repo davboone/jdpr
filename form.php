@@ -116,9 +116,9 @@ else{
             </div>
 
             <div class="form-group">
-                <label for="inputAddress">Address</label>
+                <label for="inputAddress">Address</p></label>
                 <?php
-                    echo "<input type='text' class='form-control' id='inputAddress' placeholder='1234 Main St **Address is optional, if provided they will be shown on the map.' name='addOne' $address>";
+                    echo "<input type='text' class='form-control' id='inputAddress' placeholder='1234 Main St ' name='addOne' $address>";
                 ?>
                 <span id="address1Error"></span>
             </div>
@@ -145,12 +145,7 @@ else{
                     <span id="zipError"></span>
                 </div>
             </div>
-<!--            <div class="form-group">-->
-<!--                <label id="stateLabel" for="state">State</label>-->
-<!--                <input type="text" class="form-control" id="state" name="state"-->
-<!--                       placeholder="State">-->
-<!--                <span id="stateError"></span>-->
-<!--            </div>-->
+
             <div class="form-group">
                 <label id="countryLabel" for="country">Country</label>
                 <?php
@@ -348,7 +343,7 @@ else{
                 <label for="email">Company Email</label>
                 <?php
                 echo "<input type='email' class='form-control' id='email' name='email' maxlength='60'
-                       placeholder='joeshmoe@yahoo.com **This field is optional but if provided will be added to catalog.'
+                       placeholder='joeshmoe@yahoo.com'
                        $email>";
                 ?>
                 <span id="emailError"></span>
@@ -359,7 +354,7 @@ else{
                 <label for="phone">Company Phone Number</label>
                 <?php
                 echo "<input type='tel' class='form-control' id='phone' name='phone' maxlength='14'
-                       placeholder='XXX-XXX-XXXX **This field is optional but if provided will be added to catalog.'
+                       placeholder='XXX-XXX-XXXX'
                        $phone>";
                 ?>
             </div> <!-- Company Phone Number End -->
@@ -371,8 +366,7 @@ else{
             <div class="form-group">
 
             <p id="" class="alert alert-warning text-center" role="alert">
-                Who should we contact if there are any issues with the listing?<br>
-                We will be contacting you if there are any questions about the information in the form.<br>
+              <br>We will be contacting you if there are any questions about the information in the form.<br>
                 This information is required but we will <b>not</b> be displaying publicly or add to catalog.
             </p><br><br>
                 <label for="fname">First Name</label>
